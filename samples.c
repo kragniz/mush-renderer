@@ -1,12 +1,13 @@
+#include <stdlib.h>
+
 #include "samples.h"
 
-struct color {
-    float r;
-    float g;
-    float b;
-};
 
-struct sample {
-    struct color color;
-    struct sample *next;
-};
+struct color *new_color(float red, float green, float blue) {
+    struct color *color = malloc(sizeof(*color));
+    color->r = red;
+    color->g = green;
+    color->b = blue;
+    return color;
+}
+
