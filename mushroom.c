@@ -2,14 +2,14 @@
 
 #include "samples.h"
 
-void test_new_color() {
-    struct color *color = new_color(24, 32, 64);
+void test_color_new() {
+    struct color *color = color_new(24, 32, 64);
     assert(color->r == 24);
     assert(color->g == 32);
     assert(color->b == 64);
 }
 
 int main() {
-    test_new_color();
+    test_color_new();
     return 0;
 }
