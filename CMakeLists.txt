@@ -3,3 +3,5 @@ project(mushroom)
 add_executable(mushroom mushroom.c
                         samples.c)
 include_directories("${PROJECT_BINARY_DIR}")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic -Werr")
