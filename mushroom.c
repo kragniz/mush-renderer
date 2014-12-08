@@ -36,9 +36,11 @@ void test_image_new() {
 
 int main() {
     puts("running tests...");
+
     test_color_new();
     test_samples_new();
     test_image_new();
+
     puts("tests succeeded!");
     return 0;
 }
