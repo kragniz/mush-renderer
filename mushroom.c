@@ -14,14 +14,11 @@ void test_color_new() {
 }
 
 void test_samples_new() {
-    struct samples *samples = samples_new();
-    struct color *color = color_new(255, 128, 255);
-    samples->color = *color;
+    struct samples *samples = samples_new(255, 128, 255);
 
     assert(samples->color.r == 255);
     assert(samples->color.g == 128);
 
-    free(color);
     free(samples);
 }
 
@@ -34,12 +31,22 @@ void test_image_new() {
     free(image);
 }
 
+void test_image_sample() {
+    struct image *image = image_new(40, 15);
+
+    assert(image->samples != NULL);
+
+    free(image->samples);
+    free(image);
+}
+
 int main() {
     puts("running tests...");
 
     test_color_new();
     test_samples_new();
     test_image_new();
+    test_image_sample();
 
     puts("tests succeeded!");
     return 0;

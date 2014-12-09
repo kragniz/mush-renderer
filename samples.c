@@ -11,8 +11,11 @@ struct color *color_new(const float red, const float green, const float blue) {
     return color;
 }
 
-struct samples *samples_new() {
+struct samples *samples_new(const float red, const float green, const float blue) {
     struct samples *samples = malloc(sizeof(*samples));
+    samples->color.r = red;
+    samples->color.g = green;
+    samples->color.b = blue;
     return samples;
 }
 

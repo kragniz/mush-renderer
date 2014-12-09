@@ -20,7 +20,7 @@ struct image {
 
 struct color *color_new(const float red, const float green, const float blue);
 
-struct samples *samples_new();
+struct samples *samples_new(const float red, const float green, const float blue);
 
 struct image *image_new(const int w, const int h);
 
