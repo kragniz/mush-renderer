@@ -1,6 +1,6 @@
 #include <assert.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "samples.h"
 
@@ -31,11 +31,15 @@ void test_image_new() {
     free(image);
 }
 
-void test_image_sample() {
+void test_image_samples() {
     struct image *image = image_new(40, 15);
 
-    assert(image->samples != NULL);
+    struct samples *samples = samples_new(10, 20, 30);
+    image->samples[0] = *samples;
 
+    assert(image->samples[0].color.r == 10);
+
+    free(samples);
     free(image->samples);
     free(image);
 }
@@ -46,7 +50,7 @@ int main() {
     test_color_new();
     test_samples_new();
     test_image_new();
-    test_image_sample();
+    test_image_samples();
 
     puts("tests succeeded!");
     return 0;
