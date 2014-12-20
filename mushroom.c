@@ -45,6 +45,21 @@ void test_image_samples() {
     free(image);
 }
 
+void test_image_to_ppm() {
+    struct image *image = image_new(10, 10);
+
+    struct samples *samples = samples_new(10, 20, 30);
+    image->samples[0] = *samples;
+
+    FILE *fp = fopen("/tmp/out.ppm", "r");
+    image_to_ppm(image, fp);
+
+    fclose(fp);
+    free(samples);
+    free(image->samples);
+    free(image);
+}
+
 int main() {
     puts("running tests...");
 
