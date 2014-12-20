@@ -19,12 +19,3 @@ struct samples *samples_new(const float red, const float green, const float blue
     return samples;
 }
 
-struct image *image_new(const int w, const int h) {
-    struct image *image = malloc(sizeof(*image));
-
-    image->w = w;
-    image->h = h;
-    image->samples = calloc(w*h, sizeof(image->samples));
-
-    return image;
-}

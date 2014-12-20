@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "samples.h"
+#include "image.h"
 
 void test_color_new() {
     struct color *color = color_new(24, 32, 64);
