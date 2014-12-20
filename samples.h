@@ -12,8 +12,8 @@ struct samples {
     struct samples *next;
 };
 
-struct color *color_new(const float red, const float green, const float blue);
+struct color *color_new(const float r, const float g, const float b);
 
-struct samples *samples_new(const float red, const float green, const float blue);
+struct samples *samples_new(const float r, const float g, const float b);
 
 #endif
