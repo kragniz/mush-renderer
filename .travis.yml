@@ -3,6 +3,8 @@ compiler:
   - clang
   - gcc
 
+sudo: false
+
 before_script:
     - mkdir build
     - cd build
