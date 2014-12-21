@@ -51,7 +51,8 @@ void test_image_to_ppm() {
     struct samples *samples = samples_new(10, 20, 30);
     image->samples[0] = *samples;
 
-    FILE *fp = fopen("/tmp/out.ppm", "r");
+    FILE *fp = fopen("/tmp/out.ppm", "w");
+
     image_to_ppm(image, fp);
 
     fclose(fp);
@@ -67,6 +68,7 @@ int main() {
     test_samples_new();
     test_image_new();
     test_image_samples();
+    test_image_to_ppm();
 
     puts("tests succeeded!");
     return 0;
