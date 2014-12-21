@@ -11,4 +11,4 @@ before_script:
     - cmake ..
     - make
 
-script: valgrind --leak-check=full ./mushroom
+script: ./mushroom
