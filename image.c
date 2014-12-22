@@ -17,6 +17,10 @@ struct samples *image_get_samples(const struct image *im, const int x, const int
     return &(im->samples[y*im->w + x]);
 }
 
+struct samples *image_set_samples(struct image *im, struct samples *s, const int x, const int y) {
+    im->samples[y*im->w + x] = *s;
+}
+
 void image_to_ppm(const struct image *im, FILE *fp) {
     fprintf(fp, "P6\n%i %i\n", im->w, im->h);
 }
