@@ -45,11 +45,23 @@ void test_image_samples() {
     free(image);
 }
 
-void test_image_to_ppm() {
-    struct image *image = image_new(10, 10);
+void test_image_get_samples() {
+    struct image *image = image_new(40, 15);
 
     struct samples *samples = samples_new(10, 20, 30);
     image->samples[0] = *samples;
+
+    struct samples *s = image_get_samples(image, 0, 0);
+
+    assert(s->color.r == 10);
+    assert(s->color.g == 20);
+    assert(s->color.b == 30);
+
+    free(s);
+    free(samples);
+    free(image->samples);
+    free(image);
+}
 
     FILE *fp = fopen("/tmp/out.ppm", "w");
 
