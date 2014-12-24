@@ -63,6 +63,17 @@ void test_image_get_samples() {
     free(image);
 }
 
+void test_image_to_ppm() {
+    struct image *image = image_new(5, 5);
+    struct samples *samples;
+    int x, y;
+    for (y=0; y < image->h; y++) {
+        for (x=0; x < image->w; x++) {
+            samples = samples_new(0, 10, 20);
+            image->samples[0] = *samples;
+        }
+    }
+
     FILE *fp = fopen("/tmp/out.ppm", "w");
 
     image_to_ppm(image, fp);
